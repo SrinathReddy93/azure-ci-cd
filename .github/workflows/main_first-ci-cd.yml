@@ -24,7 +24,7 @@ on:
       GIT_FunctionApp_PATH:
         description: 'Relative path for Function'
         required: true
-        default: '/push_api/'
+        default: '.'
 
 env:
   AZURE_FUNCTIONAPP_PACKAGE_PATH: ${{ github.workspace }}/${{ github.event.inputs.GIT_FunctionApp_PATH }}  # set this to the path to your web app project, defaults to the repository root
