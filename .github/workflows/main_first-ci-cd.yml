@@ -71,13 +71,13 @@ jobs:
         - name: Download artifact from build job
           uses: actions/download-artifact@v2
           with:
-            name: python-app
-            path: './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+            name: node-app
+            path: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
 
         - name: 'Deploy to Azure Functions'
           uses: Azure/functions-action@v1
           id: deploy-to-function
           with:
             app-name: ${{ github.event.inputs.GIT_FunctionApp_Name }}
-            package: './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+            package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
             publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_528C9B1D01C44E699B18C97BACF20F5B }}
